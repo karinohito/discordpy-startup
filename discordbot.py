@@ -27,7 +27,7 @@ async def on_message(message):
         await voich.connect()
     if message.content == '$dc':
         await message.channel.send("さよなら...")
-        voich = message.author.voice.channel
+       
         await voich.disconnect()
 
     if message.content.startswith('!'):
