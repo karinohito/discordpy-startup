@@ -44,4 +44,4 @@ async def on_message(message):
             pass
 
 
-client.run(BOT_TOKEN)
+client.run('BOT_TOKEN')
