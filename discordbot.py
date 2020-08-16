@@ -16,6 +16,31 @@ async def on_command_error(ctx, error):
 @bot.command()
 async def ping(ctx):
     await ctx.send('pong')
+    
+@bot.event
+async def on_message(message):
+    if message.content == '$summon':
+        await message.channel.send("おはよう！！")
+        #voicechannelを取得
+        voich = message.author.voice.channel
+        #voicechannelに接続
+        await voich.connect()
+    if message.content == '$dc':
+        await message.channel.send("さよなら...")
+        await voich.disconnect()
+
+    if message.content.startswith('!'):
+        pass
+    elif message.content == '$summon':
+        pass
+    else:
+        if message.guild.voice_client:
+            print(message.content)
+            creat_WAV(message.content)
+            source = discord.FFmpegPCMAudio("output.wav")
+            message.guild.voice_client.play(source)
+        else:
+            pass
 
 
 bot.run(token)
