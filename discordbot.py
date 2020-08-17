@@ -1,7 +1,14 @@
+
+# coding:utf-8
 from discord.ext import commands
 import os
 import traceback
-
+import subprocess
+import ffmpeg
+from voice_gen import creat_WAV
+client = commands.Bot(command_prefix='.')
+voice_client = None
+global voich
 bot = commands.Bot(command_prefix='/')
 token = os.environ['BOT_TOKEN']
 
